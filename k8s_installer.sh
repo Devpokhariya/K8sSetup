@@ -67,7 +67,7 @@ function getK8PackageArray(){
   then
   K8_PACKAGES="kubelet-1.20.1-0 kubeadm-1.20.1-0 kubectl-1.20.1-0"
   fi
-  return $K8_PACKAGES
+  
 }
 
 function install_Package(){
@@ -212,7 +212,7 @@ upDate_System
         #         echo "Error Occured while running command !!"
         #       else
                 pck=$(getK8PackageArray)
-                echo" $pck"
+                echo "$pck"
                 install_Package $pck
                 if [ $EXIT_STATUS -ne 0 ]; then
                   echo "Error Occured while running command !!"
