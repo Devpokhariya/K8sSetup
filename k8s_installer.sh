@@ -65,6 +65,16 @@ function getK8PackageArray(){
   K8_PACKAGES="kubelet=1.20.1-00 kubeadm=1.20.1-00 kubectl=1.20.1-00"
   elif [[ $OS_TYPE == "centos" ]]
   then
+  cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+exclude=kubelet kubeadm kubectl
+EOF
   K8_PACKAGES="kubelet-1.20.1-0 kubeadm-1.20.1-0 kubectl-1.20.1-0"
   fi
   
