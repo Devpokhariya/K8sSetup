@@ -188,25 +188,25 @@ upDate_System
         echo "Error Occured while running command !!"
       else
         echo "here"
-        # post_docker_setup $CURRENT_USER
+        post_docker_setup $CURRENT_USER
         echo $EXIT_STATUS
         echo "✅  Docker setup"
-        if [ $EXIT_STATUS -ne 0 ]; then
-          echo "Error Occured while running command !!"
-        else
-          installCNIPlugin $APPS
-          echo "✅  CNI configured"
-          if [ $EXIT_STATUS -ne 0 ]; then
-            echo "Error Occured while running command !!"
-          else
-            setDownloadDir
-            if [ $EXIT_STATUS -ne 0 ]; then
-              echo "Error Occured while running command !!"
-            else
-              installCRI
-              if [ $EXIT_STATUS -ne 0 ]; then
-                echo "Error Occured while running command !!"
-              else
+        # if [ $EXIT_STATUS -ne 0 ]; then
+        #   echo "Error Occured while running command !!"
+        # else
+        #   installCNIPlugin $APPS
+        #   echo "✅  CNI configured"
+        #   if [ $EXIT_STATUS -ne 0 ]; then
+        #     echo "Error Occured while running command !!"
+        #   else
+        #     setDownloadDir
+        #     if [ $EXIT_STATUS -ne 0 ]; then
+        #       echo "Error Occured while running command !!"
+        #     else
+        #       installCRI
+        #       if [ $EXIT_STATUS -ne 0 ]; then
+        #         echo "Error Occured while running command !!"
+        #       else
                 installK8sComponent getK8PackageArray
                 if [ $EXIT_STATUS -ne 0 ]; then
                   echo "Error Occured while running command !!"
@@ -227,14 +227,14 @@ upDate_System
                 exit $EXIT_STATUS
               fi
               exit $EXIT_STATUS
-            fi
-            exit $EXIT_STATUS
-          fi
-          exit $EXIT_STATUS
-        fi    
-        exit $EXIT_STATUS
-      fi    
-        exit $EXIT_STATUS
+      #       fi
+      #       exit $EXIT_STATUS
+      #     fi
+      #     exit $EXIT_STATUS
+      #   fi    
+      #   exit $EXIT_STATUS
+      # fi    
+      #   exit $EXIT_STATUS
     fi    
     exit $EXIT_STATUS
   fi    
