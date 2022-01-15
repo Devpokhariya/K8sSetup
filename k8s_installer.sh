@@ -99,12 +99,16 @@ function add_docker_Repository(){
 function post_docker_setup(){
 #DisableSwapOFF
 sudo swapoff -a
-
+echo "swap done"
 #Disable swap on startup in /etc/fstab
 sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+echo "fstab done"
 sudo usermod -aG docker $1 
+echo "usermod added"
 newgrp docker
+echo "new grp"
 sudo systemctl start docker.service
+echo "seriv e restated"
 }
 
 function addK8sRepo(){
