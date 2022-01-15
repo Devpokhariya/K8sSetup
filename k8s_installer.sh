@@ -211,9 +211,9 @@ upDate_System
         #       if [ $EXIT_STATUS -ne 0 ]; then
         #         echo "Error Occured while running command !!"
         #       else
-                pck=$(getK8PackageArray)
-                echo "$pck"
-                install_Package $pck
+                getK8PackageArray
+                
+                install_Package $K8_PACKAGES
                 if [ $EXIT_STATUS -ne 0 ]; then
                   echo "Error Occured while running command !!"
                 else
