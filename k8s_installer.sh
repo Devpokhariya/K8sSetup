@@ -211,15 +211,15 @@ upDate_System
         #       if [ $EXIT_STATUS -ne 0 ]; then
         #         echo "Error Occured while running command !!"
         #       else
-                installK8sComponent getK8PackageArray
+                install_Package getK8PackageArray
                 if [ $EXIT_STATUS -ne 0 ]; then
                   echo "Error Occured while running command !!"
                 else
                   serviceEnable 
-                  if [ $EXIT_STATUS -ne 0 ]; then
-                    echo "Error Occured while running command !!"
-                  else
-                    setSelinuxCentos
+                  # if [ $EXIT_STATUS -ne 0 ]; then
+                  #   echo "Error Occured while running command !!"
+                  # else
+                  #   setSelinuxCentos
                     if [ $EXIT_STATUS -ne 0 ]; then
                       echo "Error Occured while running command !!"
                     else
@@ -229,8 +229,8 @@ upDate_System
                     exit $EXIT_STATUS
                 fi
                 exit $EXIT_STATUS
-              fi
-              exit $EXIT_STATUS
+              # fi
+              # exit $EXIT_STATUS
       #       fi
       #       exit $EXIT_STATUS
       #     fi
