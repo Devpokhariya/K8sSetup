@@ -105,7 +105,7 @@ sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 echo "fstab done"
 sudo usermod -aG docker $1 
 echo "usermod added"
-newgrp docker
+# newgrp docker
 echo "new grp"
 sudo systemctl start docker.service
 echo "seriv e restated"
